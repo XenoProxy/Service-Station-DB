@@ -1,7 +1,7 @@
-from connection import get_connection as conn
+from database.connection import mysql
 
 
-connection = conn()
+connection = mysql.connect()
 with connection:
     with connection.cursor() as cursor:
         db_create = """
