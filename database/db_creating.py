@@ -1,13 +1,16 @@
-import pymysql
+from connection import get_connection as conn
 
-mydb = pymysql.connect(
-    host="localhost",
-    user="root",
-    password="",
-    charset='cp1251',
-)
-print("successful connection!")
 
-mycursor = mydb.cursor()
-mycursor.execute("CREATE DATABASE python_db;")
-mycursor.close()
+connection = conn()
+with connection:
+    with connection.cursor() as cursor:
+        db_create = "CREATE DATABASE %s;"
+        cursor.execute(db_create, "service_station")
+    connection.commit()
+
+    with connection.cursor() as cursor:
+        # Read a single record
+        sql = "SELECT `id`, `password` FROM `users` WHERE `email`=%s"
+        cursor.execute(sql, ('webmaster@python.org',))
+        result = cursor.fetchone()
+        print(result)
