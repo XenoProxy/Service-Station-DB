@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Service station</title>
+  {% if title %}
+      <title>{{ title }} - Service Station</title>
+      {% else %}
+      <title>Welcome to Service Station</title>
+      {% endif %}
 </head>
 <body>
-  <div>Service station: <a href="/index">Home</a></div>
+  <div>
+    Service station:
+    <a href="/index">Home</a>
+    <a href="/login">Login</a>
+    </div>
         <hr>
         {% block content %}{% endblock %}
 </body>
