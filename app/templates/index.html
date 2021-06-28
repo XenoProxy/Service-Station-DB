@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Table structure</h1>
+    {% for data in structure %}
+    <div> <p><b>Fields: </b>{{ data.Field }}</p></div>
+    {% endfor %}
+{% endblock %}
