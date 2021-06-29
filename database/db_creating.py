@@ -1,14 +1,29 @@
 from connection import get_connection as conn
 
 
-connection = conn()
-with connection:
+def create_db():
+    connection = conn()
+    with connection:
+        with connection.cursor() as cursor:
+            db_create = """
+            CREATE DATABASE IF NOT EXISTS service_station;
+            """
+            cursor.execute(db_create)
+        connection.commit()
+
+
+def create_tables():
+    connection = conn()
     with connection.cursor() as cursor:
-        db_create = """
-        CREATE DATABASE IF NOT EXISTS service_station;
-        """
-        cursor.execute(db_create)
-    connection.commit()
+        tbl_users_create = """
+            CREATE TABLE IF NOT EXISTS service_station.`tbl_user` (
+            `user_id` BIGINT NULL AUTO_INCREMENT,
+            `user_name` VARCHAR(45) NULL,
+            `user_username` VARCHAR(45) NULL,
+            `user_password` VARCHAR(45) NULL,
+            PRIMARY KEY (`user_id`))
+            """
+        cursor.execute(tbl_users_create)
 
     with connection.cursor() as cursor:
         tbl_auto_create = """
@@ -59,3 +74,4 @@ with connection:
             )
             """
         cursor.execute(tbl_service_create)
+    connection.commit()
