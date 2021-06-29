@@ -12,27 +12,15 @@ def sp_create_user():
             BEGIN
                 if (
                     select exists (
-                        select 1 from tbl_user where user_username = p_username
+                        select 1 from service_station.`tbl_user` where
+                        user_username = username
                     )
-                ) THEN
-                 
-                    select 'Username Exists !!';
-                 
-                ELSE
-                 
-                    insert into tbl_user
-                    (
-                        user_name,
-                        user_username,
-                        user_password
-                    )
-                    values
-                    (
-                        p_name,
-                        p_username,
-                        p_password
-                    );
-                 
+                ) THEN                 
+                    select 'Username Exists !!';                 
+                ELSE                 
+                    insert into service_station.`tbl_user` (
+                    user_username, user_password) values (
+                    username, password);                 
                 END IF;
             END$$
             DELIMITER ;"""
