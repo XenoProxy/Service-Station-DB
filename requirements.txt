@@ -3,7 +3,6 @@ appdirs==1.4.4
 black==21.6b0
 click==8.0.1
 colorama==0.4.4
-ezalchemy==1.1.2
 Flask==2.0.1
 Flask-Migrate==3.0.1
 Flask-SQLAlchemy==2.5.1

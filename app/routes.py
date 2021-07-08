@@ -11,7 +11,7 @@ def index():
     connection = conn()
     with connection:
         with connection.cursor() as cursor:
-            cursor.execute("EXPLAIN service_station.`Auto`;")
+            cursor.execute("EXPLAIN `Auto`;")
             structure = cursor.fetchall()
             return render_template(
                 "index.html",
