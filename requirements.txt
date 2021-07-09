@@ -22,4 +22,4 @@ SQLAlchemy==1.4.20
 toml==0.10.2
 Werkzeug==2.0.1
 WTForms==2.3.3
-PyMySQL~=1.0.2
+PyMySQL==0.8.0
