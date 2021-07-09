@@ -11,12 +11,10 @@ def index():
     connection = conn()
     with connection:
         with connection.cursor() as cursor:
-            cursor.execute("EXPLAIN `Auto`;")
-            structure = cursor.fetchall()
+            cursor.execute("EXPLAIN `Авто`;")
             return render_template(
                 "index.html",
                 title="Home",
-                structure=structure
             )
 
 
