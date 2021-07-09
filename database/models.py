@@ -7,7 +7,7 @@ class Auto(db.Model):
     brand = db.Column(db.String(15), primary_key=True)
     model = db.Column(db.String(30), primary_key=True)
     make = db.Column(db.Date, primary_key=True)
-    owner = db.Column()
+    owner = db.relationship("Clients", bakref=db.backref("", lazy="dynamic"))
 
     def __repr__(self):
         info = "VIN:{}\nNumber:{}\nBrand:{}\nModel:{}\nMake:{}".format(
@@ -21,7 +21,7 @@ class Auto(db.Model):
 
 
 class Clients(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, db.ForeignKey("client.id"), primary_key=True)
     name = db.Column(db.String(15),)
     surname = db.Column(db.String(20),)
 
