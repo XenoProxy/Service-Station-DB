@@ -3,7 +3,6 @@ appdirs==1.4.4
 black==21.6b0
 click==8.0.1
 colorama==0.4.4
-ezalchemy==1.1.2
 Flask==2.0.1
 Flask-Migrate==3.0.1
 Flask-SQLAlchemy==2.5.1
@@ -15,7 +14,6 @@ Mako==1.1.4
 MarkupSafe==2.0.1
 mypy-extensions==0.4.3
 pathspec==0.8.1
-PyMySQL==1.0.2
 python-dateutil==2.8.1
 python-editor==1.0.4
 regex==2021.4.4

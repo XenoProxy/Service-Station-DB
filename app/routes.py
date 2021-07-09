@@ -2,22 +2,15 @@ from flask import render_template, flash, redirect, url_for
 
 from app import app
 from app.forms import LoginForm
-from database.connection import get_connection as conn
 
 
 @app.route("/")
 @app.route("/index")
 def index():
-    connection = conn()
-    with connection:
-        with connection.cursor() as cursor:
-            cursor.execute("EXPLAIN service_station.`Auto`;")
-            structure = cursor.fetchall()
-            return render_template(
-                "index.html",
-                title="Home",
-                structure=structure
-            )
+    return render_template(
+        "index.html",
+        title="Home",
+    )
 
 
 @app.route("/login", methods=['GET', 'POST'])
