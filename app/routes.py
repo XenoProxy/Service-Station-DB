@@ -1,7 +1,8 @@
 from flask import render_template, flash, redirect, url_for
 
-from app import app
-from app.forms import LoginForm
+from app import app, db
+from app.forms import LoginForm, ClientInsertData
+from database.models import Clients
 
 
 @app.route("/")
@@ -13,14 +14,31 @@ def index():
     )
 
 
-@app.route("/login", methods=['GET', 'POST'])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
         flash(
-            'Login requested for user {}, remember_me={}'.format(
+            "Login requested for user {}, remember_me={}".format(
                 form.username.data, form.remember_me.data
             )
         )
         return redirect(url_for("index"))
     return render_template("login.html", title="Sign In", form=form)
+
+
+@app.route("/insert-data", methods=["GET", "POST"])
+def insert_data():
+    form = ClientInsertData()
+    try:
+        client = Clients(
+            name=form.form["name"],
+            surname=form.form["surname"],
+            auto=0,
+        )
+        db.session.add(client)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        print("Ошибка добавления в БД")
+    return render_template("insert_data.html", title="Inserting")
