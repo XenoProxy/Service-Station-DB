@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   {% if title %}
-      <title>{{ title }} - Service Station</title>
+      <title>{{ title }}</title>
       {% else %}
       <title>Welcome to Service Station</title>
       {% endif %}
@@ -14,6 +14,8 @@
     <a href="{{ url_for('index') }}">Home</a>
     <a href="{{ url_for('login') }}">Login</a>
     </div>
+        <li><a href="{{ url_for('index') }}">Main page</a></li>
+        <li><a href="{{ url_for('register') }}">Insert data</a></li>
         <hr>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
