@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for
 
 from app import app, db
-from app.forms import LoginForm, ClientInsertData
+from app.forms import LoginForm, Clients
 from database.models import Clients
 
 
@@ -29,11 +29,11 @@ def login():
 
 @app.route("/insert-data", methods=["GET", "POST"])
 def insert_data():
-    form = ClientInsertData()
+    form = Clients()
     if form.validate_on_submit():
         client = Clients(
             name=form.name.data,
-            surname=form.surname.data
+            surname=form.surname.data,
         )
         db.session.add(client)
         db.session.commit()
