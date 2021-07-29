@@ -17,13 +17,12 @@ class Auto(db.Model):
         self.make = make
 
     def __repr__(self):
-        info = "VIN:{}\nNumber:{}\nBrand:{}\nModel:{}\nMake:{}\nOwner:\n".format(
+        info = "VIN:{}\nNumber:{}\nBrand:{}\nModel:{}\nMake:{}\n".format(
             self.vin,
             self.number,
             self.brand,
             self.model,
             self.make,
-            self.owner
         )
         return info
 
@@ -38,10 +37,9 @@ class Clients(db.Model):
         self.surname = surname
 
     def __repr__(self):
-        info = "Id:{}\nName:{}\nSurname:{}\nAuto:\n".format(
+        info = "Id:{}\nName:{}\nSurname:{}\n".format(
             self.id,
             self.name,
             self.surname,
-            self.auto
         )
         return info
