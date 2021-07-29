@@ -3,6 +3,7 @@
 
 {% block content %}
     <h1>Inserting data</h1>
+    <h2>Clients</h2>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
@@ -16,6 +17,46 @@
             {{ form.surname.label }}
             {{ form.surname(size=15) }}
             {% for error in form.surname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <h2>Auto</h2>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.vin.label }}
+            {{ form.vin(size=15) }}
+            {% for error in form.vin.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.number.label }}
+            {{ form.number(size=15) }}
+            {% for error in form.number.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.brand.label }}
+            {{ form.brand(size=15) }}
+            {% for error in form.brand.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.model.label }}
+            {{ form.model(size=15) }}
+            {% for error in form.model.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.make.label }}
+            {{ form.make(size=15) }}
+            {% for error in form.make.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
