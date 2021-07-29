@@ -31,5 +31,10 @@ def login():
 def insert_data():
     form = ClientInsertData()
     if form.validate_on_submit():
-        return redirect("/index")
+        client = Clients(
+            name=form.name.data,
+            surname=form.surname.data
+        )
+        db.session.add(client)
+        db.session.commit()
     return render_template("insert_data.html", title="Inserting", form=form)

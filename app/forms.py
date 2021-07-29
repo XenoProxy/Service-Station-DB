@@ -13,5 +13,4 @@ class LoginForm(FlaskForm):
 class ClientInsertData(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
     surname = StringField("Surname", validators=[DataRequired()])
-    auto = StringField("Auto", validators=[DataRequired()])
     submit = SubmitField("Add")

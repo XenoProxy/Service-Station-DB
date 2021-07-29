@@ -32,12 +32,11 @@ class Clients(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     name = db.Column(db.String(15), nullable=False)
     surname = db.Column(db.String(20), nullable=False)
-    auto = db.relationship("Auto", backref="owner", lazy="dynamic")
+    # auto = db.relationship("Auto", backref="owner", lazy="dynamic")
 
-    def __init__(self, name, surname, auto):
+    def __init__(self, name, surname):
         self.name = name
         self.surname = surname
-        self.auto = auto
 
     def __repr__(self):
         info = "Id:{}\nName:{}\nSurname:{}\nAuto:\n".format(
