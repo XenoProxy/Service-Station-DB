@@ -10,12 +10,11 @@
 </head>
 <body>
   <div>
-    Service station:
-    <a href="{{ url_for('index') }}">Home</a>
-    <a href="{{ url_for('login') }}">Login</a>
+      <h1>Service station:</h1>
     </div>
-        <li><a href="{{ url_for('index') }}">Main page</a></li>
-        <li><a href="{{ url_for('register') }}">Insert data</a></li>
+        <li><a href="{{ url_for('index') }}">Home page</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        <li><a href="{{ url_for('insert_data') }}">Insert data</a></li>
         <hr>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
