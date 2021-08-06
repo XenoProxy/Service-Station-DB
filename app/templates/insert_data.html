@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Inserting data</h1>
+    <h2>Clients</h2>
+    <form action="{{ url_for('insert_data') }}" method="post" novalidate>
+        {{ cform.hidden_tag() }}
+        <p>
+            {{ cform.name.label }}
+            {{ cform.name(size=15) }}
+            {% for error in cform.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ cform.surname.label }}
+            {{ cform.surname(size=15) }}
+            {% for error in cform.surname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ cform.submit() }}</p>
+    </form>
+    <h2>Auto</h2>
+    <form action="{{ url_for('insert_data') }}" method="post" novalidate>
+        {{ aform.hidden_tag() }}
+        <p>
+            {{ aform.vin.label }}
+            {{ aform.vin(size=15) }}
+            {% for error in aform.vin.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ aform.number.label }}
+            {{ aform.number(size=15) }}
+            {% for error in aform.number.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ aform.brand.label }}
+            {{ aform.brand(size=15) }}
+            {% for error in aform.brand.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ aform.model.label }}
+            {{ aform.model(size=15) }}
+            {% for error in aform.model.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ aform.make.label }}
+            {{ aform.make(size=15) }}
+            {% for error in aform.make.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ aform.submit() }}</p>
+    </form>
+{% endblock %}
